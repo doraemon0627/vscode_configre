@@ -5,19 +5,18 @@
             "label": "C/C++: gcc-9 build active file",
             "command": "/usr/bin/gcc-9",
             "args": [
-                "-g", //debug mode
+                "-g3", //debug mode
                 "${fileDirname}/*.c", //get every c files
                 "-O0", // set optimization levet to 0 
                 "-o", // set custom ELF file name
                 "${fileDirname}/${fileBasenameNoExtension}", // main.c -> main(ELF file)
                 "-Wall", // strict warnings
                 "-Wextra", // very strict warnings
-                "-Wpedantic", // warnings about c standard
+                "-pedantic-errors", // warnings about c standard
                 "-pthread", //pthread.h
                 "-lncurses", // curses.h (getch() etc...)
                 "-lm" // math.h
-                // "-std=c11" // set c version
-             ],
+            ],
             "options": {
                 "cwd": "${fileDirname}"
             },
